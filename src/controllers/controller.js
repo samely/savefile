@@ -8,8 +8,8 @@ const path = require('path');
  * @param  {object} res response
  */
 const uploadFile = async (req, res) => {
-	const csv = `${path.resolve(__dirname,'../../')}/${req.file.path}`;
-	await save(csv, req.provider);
+	const csv = `${path.resolve(__dirname,'../../')}/${req.body.path}`;
+	await save(csv, req.body.provider);
 	res.json({
 		message: 'ok - data was saved sucessfully',
 		body: {}

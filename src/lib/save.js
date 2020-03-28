@@ -44,12 +44,6 @@ function savedb(csvPath, layout) {
 				console.log('ok - finished inserting data.');
 				insert.finalize();
 				db.close();
-
-				// db.all('SELECT * FROM vehicle', (err, row) => {
-				// 	console.log(err)
-				// 	db.close();
-				// });
-
 			});
 	});
 
