@@ -1,0 +1,26 @@
+{
+	"x": {
+		"uuid": "id",
+		"vin": "vin",
+		"make": "make",
+		"model": "model",
+		"mileage": "age",
+		"year": "year",
+		"price": "cost",
+		"zipcode": "zip",
+		"createdate": "createdate",
+		"updatedate": "updatedate"
+	},
+	"y": {
+		"uuid": "uid",
+		"vin": "vin",
+		"make": "make",
+		"model": "models",
+		"mileage": "mile",
+		"year": "year",
+		"price": "price",
+		"zipcode": "code",
+		"createdate": "create",
+		"updatedate": "update"
+	}
+}
