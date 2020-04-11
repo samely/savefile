@@ -1,88 +1,86 @@
-# Project Title
+# CSV uploader API sample
 
-One Paragraph of project description goes here
+An example of API to read data from a `.csv` file and upload it into a database.
+
+_In this case we have a `.csv` file that contains vehicles data_
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+The following instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
+* Install [node](https://nodejs.org/en/download/)
+* Install [yarn](https://yarnpkg.com/getting-started/install)
+* Download the project on your local machine by running 
 ```
-Give examples
+git clone git@github.com:samely/savefile.git
 ```
 
 ### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+* Go to `savefile/` and install all the dependencies
 
 ```
-Give the example
+yarn install
 ```
 
-And repeat
+* For development and testing
 
 ```
-until finished
+yarn dev
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+### Build and start
+
+* Build the project, which will create a `dist` folder from where the API will run
+
+```
+yarn build
+```
+
+* Start the API 
+```
+yarn start
+```
 
 ## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+* Tests are in the `test` folder, run:
 
 ```
-Give an example
+yarn test
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Express](https://expressjs.com/) - a web application framework for Node.js 
+* [csvtojson](https://www.npmjs.com/package/csvtojson) - converts csv to json. A JSON approach helps to handle the uncertainty of the `csv` headers order.
+* [morgan](https://www.npmjs.com/package/morgan) - an HTTP request logger middleware, so we are able to see the requests logged in the console.
+* [multer](https://www.npmjs.com/package/multer) - a middleware to upload files.
+* [sequelize](https://sequelize.org/) - a ORM that support many DBMS.
+* [sqlite](https://sqlite.org/index.html) - a SQL database engine.
 
-## Contributing
+## API
+### Vehicle
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+#### GET `/api/vehicle/list`
 
-## Versioning
+List vehicles from the database.
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+```
+Example
 
-## Authors
+http://localhost:4000/api/vehicle/list
+```
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+#### POST `/api/vehicle/upload?<file>&&<provider>`
 
-## License
+Upload the file to the server and create an entry for each row in the file.
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+parameter| description
+---|---
+file| a `.csv` file containing the data
+provider| the name of the file provider in order to get a personalized layout.
 
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+_Use [postman](https://www.postman.com/) or [insommia](https://insomnia.rest/) for testing._
+_You can use the `test/feature/vehicle.csv` file as a test file_
