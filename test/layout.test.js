@@ -1,6 +1,6 @@
 'use strict';
 
-const layout = require('../lib/layout.js');
+const layout = require('../src/lib/layout.js');
 const test = require('tape').test;
 const path = require('path');
 

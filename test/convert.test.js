@@ -1,6 +1,6 @@
 'use strict';
 
-const convert = require('../lib/convert.js');
+const convert = require('../src/lib/convert.js');
 const test = require('tape').test;
 const path = require('path');
 
