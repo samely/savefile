@@ -2,7 +2,12 @@
 
 An example of API to read data from a `.csv` file and upload it into a database.
 
+Assuming that the headers of the CSV could:
+- differ to the names specified in the database model, there is a layout functionality that maps the names before uploading the data into the database.
+- be in a random order, which is handled by converting the CSV to JSON.
+
 _In this case we have a `.csv` file that contains vehicles data_
+
 
 ## Getting Started
 
