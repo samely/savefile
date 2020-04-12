@@ -2,11 +2,9 @@
 
 An example of API to read data from a `.csv` file and upload it into a database.
 
-Assuming that the headers of the CSV could:
-- differ to the names specified in the database model, there is a layout functionality that maps the names before uploading the data into the database.
-- be in a random order, which is handled by converting the CSV to JSON.
-
 _In this case we have a `.csv` file that contains vehicles data_
+
+:point_right: Check [context](docs/context.md) for more information.
 
 
 ## Getting Started
@@ -67,18 +65,18 @@ yarn test
 ## API
 ### Vehicle
 
-#### GET `/api/vehicle/list`
+#### GET `/api/vehicles`
 
 List vehicles from the database.
 
 ```
 Example
 
-http://localhost:4000/api/vehicle/list
+http://localhost:4000/api/vehicles
 ```
 
 
-#### POST `/api/vehicle/upload?<file>&&<provider>`
+#### POST `/api/vehicles?<file>&<provider>`
 
 Upload the file to the server and create an entry for each row in the file.
 

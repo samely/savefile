@@ -6,9 +6,9 @@ const { uploadFile, listVehicles } = require('../controllers/vehicle.js');
 
 const router = express.Router();
 
-router.get('/vehicle/list', listVehicles);
+router.get('/vehicles', listVehicles);
 
 const upload = multer({ dest: './data/' });
-router.post('/vehicle/upload', upload.single('file'), uploadFile);
+router.post('/vehicles', upload.single('file'), uploadFile);
 
 module.exports = router;

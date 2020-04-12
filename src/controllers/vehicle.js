@@ -18,10 +18,11 @@ const uploadFile = async (req, res) => {
 		res.status(400).json({ message: 'not ok - request parameter is not valid.' });
 		return;
 	}
+	const provider = req.body.provider;
 	let layout;
 
 	try {
-		layout = await getlayout(req.body.provider);
+		layout = await getlayout(provider);
 	} catch (e) {
 		res.status(412).json({ message: 'not ok - layout for provider does not exist.' });
 		return;
@@ -36,6 +37,8 @@ const uploadFile = async (req, res) => {
 		Object.keys(this.layout).forEach(field => {
 			data[`${field}`] = lines[this.layout[field]];
 		});
+
+		data.provider = provider;
 
 		vehicle.create(data).then(() => done()).catch(e => done(e));
 	};

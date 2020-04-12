@@ -14,7 +14,8 @@ function setUp(sequelize, DataTypes) {
 		price: { type: DataTypes.DECIMAL(10, 2) },
 		zipcode: { type: DataTypes.STRING },
 		createdate: { type: DataTypes.DATE },
-		updatedate: { type: DataTypes.DATE }
+		updatedate: { type: DataTypes.DATE },
+		provider: { type: DataTypes.STRING}
 	});
 }
 
