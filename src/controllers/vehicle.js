@@ -14,7 +14,7 @@ const processData = new Transform({ objectMode: true });
  * @param  {object} res response
  */
 const uploadFile = async (req, res) => {
-	if (!req.body.provider) {
+	if (!req.body.provider || !req.file) {
 		res.status(400).json({ message: 'not ok - request parameter is not valid.' });
 		return;
 	}
